@@ -1,7 +1,235 @@
-@use "./index" as *;
+//variables
+//colors
+$clr-white: hsl(0, 0%, 100%);
+$clr-greek-flag-blue: hsl(229, 57%, 11%);
+$clr-mythical-night: hsl(228, 56%, 26%);
+$clr-transparent-blue: hsl(243, 100%, 93%);
+$clr-peach-amber: #ffa197;
+$clr-french-fuchsia: #ff4a95;
+//fonts
+@font-face {
+  src: url(../assets/fonts/Raleway-Regular.ttf);
+  font-family: "Raleway-Regular";
+  font-weight: 400;
+}
+@font-face {
+  src: url(../assets/fonts/Raleway-Bold.ttf);
+  font-family: "Raleway-Bold";
+  font-weight: 700;
+}
+$font-Raleway-Regular: "Raleway-Regular", sans-serif;
+$font-Raleway-Bold: "Raleway-Bold", sans-serif;
 
-$clr-primary: #ffff00;
-
+//mixin
+@mixin laptop {
+  @media (min-width: 64.0625rem) {
+    @content;
+  }
+}
+//reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
 body {
-  background-color: $clr-primary;
+  font-family: $font-Raleway-Regular;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+//global style
+.container {
+  padding: 0 1.5rem;
+  &--fylo {
+    width: min(100%, 57.5rem);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    @include laptop {
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 1.875rem;
+    }
+  }
+}
+//section fylo
+.fylo {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: {
+    color: $clr-greek-flag-blue;
+    image: url(../assets/images/bg-mobile.png);
+    repeat: no-repeat;
+    size: cover;
+  }
+  @include laptop {
+    background: {
+      image: url(../assets/images/bg-desktop.png);
+      size: 100% auto;
+      position: 0 130%;
+    }
+  }
+  &__logo-area,
+  &__storage {
+    background-color: $clr-mythical-night;
+    padding: 2.5rem;
+    border-radius: 0.625rem;
+  }
+  &__logo-area {
+    border-top-right-radius: 6.25rem;
+    @include laptop {
+      min-width: 21.875rem;
+    }
+  }
+  &__logo-area-top {
+    margin-bottom: 2.0625rem;
+  }
+  &__logo-area-bottom {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  &__logo-area-bottom-item {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.625rem;
+    background-color: $clr-greek-flag-blue;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__storage {
+    position: relative;
+    @include laptop {
+      width: 33.75rem;
+      height: 9.625rem;
+    }
+  }
+  &__storage-used-info {
+    font-size: 0.875rem;
+    color: $clr-transparent-blue;
+  }
+  &__storage-used-info-highlight {
+    font-weight: bold;
+  }
+  &__storage-left {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    @include laptop {
+      justify-content: flex-end;
+      top: -2.9375rem;
+      right: 2.5rem;
+    }
+  }
+  &__storage-used-space {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    height: 1.25rem;
+    background-color: $clr-greek-flag-blue;
+    border-radius: 0.625rem;
+  }
+  &__storage-used-space-progress {
+    width: 80%;
+    background: linear-gradient(
+      to right,
+      $clr-peach-amber,
+      $clr-french-fuchsia
+    );
+    height: 0.9375rem;
+    border-radius: 0.625rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0.1563rem;
+    &::after {
+      content: "";
+      width: 0.625rem;
+      height: 0.625rem;
+      border-radius: 50%;
+      background-color: $clr-white;
+      position: absolute;
+      right: 0.3125rem;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+  &__storage-count {
+    display: flex;
+    justify-content: space-between;
+    color: $clr-transparent-blue;
+  }
+  &__storage-left-area {
+    background-color: $clr-white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.625rem;
+    max-width: 11.1875rem;
+    display: flex;
+    gap: 0.5625rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    @include laptop {
+      border-bottom-right-radius: 0;
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-bottom: 1.25rem solid transparent;
+        border-right: 1.25rem solid $clr-white;
+        border-left: 1.25rem solid transparent;
+        position: absolute;
+        bottom: -1.25rem;
+        right: 0;
+      }
+    }
+  }
+  &__storage-left-area-title {
+    font-family: $font-Raleway-Bold;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+  &__storage-left-area-title-small {
+    font-family: $font-Raleway-Bold;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+  }
 }

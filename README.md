@@ -1,4 +1,4 @@
-# Frontend Mentor - Challange name
+# Frontend Mentor - Fylo data storage management
 
 ## Overview
 
@@ -6,11 +6,7 @@
 
 #### Desktop
 
-![](Screenshot)
-
-#### Mobile
-
-![](Screenshot)
+![](./assets/design/desktop-design.png)
 
 ### Links
 
@@ -23,7 +19,7 @@
 
 - Semantic HTML5 markup
 - CSS custom properties
-- CSS Grid
+- CSS Flexbox
 - Mobile-first workflow
 
 ## Author
