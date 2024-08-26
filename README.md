@@ -10,8 +10,8 @@
 
 ### Links
 
-- Solution URL: []()
-- Live Site URL: []()
+- Solution URL: [https://www.frontendmentor.io/solutions/fylo-data-storage-management-using-sass-ITdl7bzW_y](https://www.frontendmentor.io/solutions/fylo-data-storage-management-using-sass-ITdl7bzW_y)
+- Live Site URL: [https://codermoshiur.github.io/fylo-data-storage-management/](https://codermoshiur.github.io/fylo-data-storage-management/)
 
 ## My process
 
